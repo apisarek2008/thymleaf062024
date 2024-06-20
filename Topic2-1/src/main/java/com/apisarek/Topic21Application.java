@@ -10,7 +10,7 @@ public class Topic21Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Topic21Application.class, args);
-		System.out.println("ertheitheir");
+		
 	}
 
 }
