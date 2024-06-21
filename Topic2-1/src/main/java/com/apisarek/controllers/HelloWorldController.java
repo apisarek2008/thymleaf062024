@@ -43,7 +43,7 @@ public class HelloWorldController {
 		return "Hello";
 	}
 
-	@GetMapping("/peaple")
+	@GetMapping("/people")
 	public String showFriends(Model model) {
 		
 		List<Person> friends = new ArrayList<Person>();
@@ -56,8 +56,26 @@ public class HelloWorldController {
 		
 		System.out.println(friends);
 		
-		model.addAttribute("message", friends);
+		model.addAttribute("people", friends);
 		return "printFriends.html";
+	}
+	
+	@GetMapping("/peopleJSON")
+	@ResponseBody
+	public List<Person> showFriendsJSON(Model model) {
+		
+		List<Person> friends = new ArrayList<Person>();
+		
+		friends.add(new Person (1, "Allan", 23, 56.4f));
+		friends.add(new Person (2, "Zenek", 45, 57.4f));
+		friends.add(new Person (3, "Bob", 14, 54.4f));
+		friends.add(new Person (4, "Hans", 65, 23.4f));
+		friends.add(new Person (5, "Pinokio", 33, 55.4f));
+		
+		System.out.println(friends);
+		
+		model.addAttribute("people", friends);
+		return friends;
 	}
 
 }
